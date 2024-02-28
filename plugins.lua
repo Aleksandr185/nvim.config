@@ -17,12 +17,19 @@ local plugins = {
         -- lsp servers
         "clangd",
         "lua-language-server",
+        "pyright",
+
+        -- dap ( codelldb or vscode-cpptools)
+        "codelldb",
+        "debugpy",
+
+        -- linter
+        "flake8",
 
         -- formats
         "clang-format",
+        "black",
 
-        -- dap ( codelldb or vscode-cpptools)
-        "codelldb"
       }
     }
   },
