@@ -1,4 +1,6 @@
 
+require 'nvim-treesitter.install'.compilers = { "clang" }
+
 local plugins = {
   -- null-ls (formatting)
   {
