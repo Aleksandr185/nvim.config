@@ -2,6 +2,17 @@
 require 'nvim-treesitter.install'.compilers = { "clang" }
 
 local plugins = {
+  -- nvim-nio: A library for asynchronous IO in Neovim, inspired by the asyncio library in Python.
+  -- The library focuses on providing both common asynchronous primitives and asynchronous APIs for Neovim's core.
+  {
+    "nvim-neotest/nvim-nio"
+  },
+
+  -- neodev.nvim: Neovim setup for init.lua and plugin development with full signature help, docs and completion for the nvim lua API.
+  {
+    "folke/neodev.nvim", opts = {}
+  },
+
   -- null-ls (formatting)
   {
     "jose-elias-alvarez/null-ls.nvim",
