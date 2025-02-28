@@ -22,6 +22,16 @@ local plugins = {
     opts = {}
   },
 
+  {
+    "folke/which-key.nvim",
+    opts = {
+      preset = "helix", -- classic, modern helix
+      icons = {
+        separator = "",
+      },
+    },
+  },
+
   -- nvim-lspconfig
   {
     "neovim/nvim-lspconfig",
