@@ -73,9 +73,7 @@ local plugins = {
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
-    config = function ()
-      require("better_escape").setup()
-    end,
+    opts = {}
   },
 
   {
@@ -135,9 +133,7 @@ local plugins = {
   {
     "windwp/nvim-ts-autotag",
     event = "VeryLazy",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
+    opts = {}
   },
 
   {
@@ -152,15 +148,15 @@ local plugins = {
     "folke/trouble.nvim",
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+    cmd = "Trouble"
   },
 
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
-    config = function()
-      require("todo-comments").setup()
-    end,
+    opts = {}
   },
 
 }
