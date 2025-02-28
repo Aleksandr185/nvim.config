@@ -95,6 +95,14 @@ local plugins = {
   },
 
   {
+    "rcarriga/nvim-notify",
+    lazy = false,
+    config = function (_, _)
+      vim.notify = require('notify')
+    end
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
