@@ -120,6 +120,12 @@ local plugins = {
       },
       auto_install = true,
     },
+
+  -- git stuff
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "User FilePost",
+    opts = require "configs.gitsigns",
   },
 
   {
