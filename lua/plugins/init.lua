@@ -123,6 +123,7 @@ local plugins = {
       },
       auto_install = true,
     },
+  },
 
   -- git stuff
   {
@@ -167,7 +168,14 @@ local plugins = {
     lazy = false,
     opts = {}
   },
-
+  {
+    "rbong/vim-flog",
+    lazy = true,
+    cmd = { "Flog", "Flogsplit", "Floggit" },
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
+  },
 }
 
 return plugins
