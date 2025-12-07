@@ -53,17 +53,17 @@ local plugins = {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
-    config = function ()
+    config = function()
       local dap = require("dap")
       local dapui = require("dapui")
       dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function ()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
         dapui.open()
       end
-      dap.listeners.before.event_terminated["dapui_config"] = function ()
+      dap.listeners.before.event_terminated["dapui_config"] = function()
         dapui.close()
       end
-      dap.listeners.before.event_exited["dapui_config"] = function ()
+      dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
     end
@@ -95,7 +95,7 @@ local plugins = {
   {
     "rcarriga/nvim-notify",
     lazy = false,
-    config = function (_, _)
+    config = function(_, _)
       vim.notify = require('notify')
     end
   },
@@ -135,7 +135,7 @@ local plugins = {
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
-    config = function ()
+    config = function()
       require "configs.lint"
     end,
   },
@@ -149,9 +149,9 @@ local plugins = {
   {
     "ggandor/leap.nvim",
     lazy = false,
-    config = function()
-      require("leap").add_default_mappings(true)
-    end,
+    -- config = function()
+    --   require("leap").add_default_mappings(true)
+    -- end,
   },
 
   {
@@ -168,6 +168,8 @@ local plugins = {
     lazy = false,
     opts = {}
   },
+
+  -- Git branch viewer
   {
     "rbong/vim-flog",
     lazy = true,
@@ -175,6 +177,20 @@ local plugins = {
     dependencies = {
       "tpope/vim-fugitive",
     },
+  },
+
+  -- Markdown
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    lazy = true,
+    cmd = { "RenderMarkdown"},
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons'
+    },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
 }
 

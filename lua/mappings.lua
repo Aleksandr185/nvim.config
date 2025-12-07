@@ -26,3 +26,15 @@ wk.add(
     {"<leader>gsb", "<cmd>Gitsigns toggle_current_line_blame<CR>", desc = "gitsigns toggle current line blame", mode = "n", icon = ""}
   }
 )
+
+-- Leap (current window)
+map({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+
+wk.add(
+  {
+    {"<leader>rm", group = "RenderMarkdown"},
+    {"<leader>rmy", "<cmd>RenderMarkdown buf_enable <CR>", desc = "RenderMarkdown buff On"},
+    {"<leader>rmn", "<cmd>RenderMarkdown buf_disable <CR>", desc = "RenderMarkdown buff Off"},
+    {"<leader>rmt", "<cmd>RenderMarkdown buf_toggle <CR>", desc = "RenderMarkdown buff toggle"},
+  }
+)
