@@ -5,34 +5,33 @@ local on_attach = nvlsp.on_attach
 local on_init = nvlsp.on_init
 local capabilities = nvlsp.capabilities
 
-local lspconfig = require("lspconfig")
-local util = lspconfig.util
-
--- lua-language-server
-lspconfig.lua_ls.setup{
-
-}
+-- Lua
+vim.lsp.enable('lua_ls')
+vim.lsp.config('lua_ls', {})
 
 -- C/C++
-lspconfig.clangd.setup {
-  on_attach = function (client, bufnr)
+vim.lsp.enable('clangd')
+vim.lsp.config('clangd', {
+  on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
   end,
   capabilities = capabilities,
   on_init = on_init,
-}
+})
 
 -- Python
-lspconfig.pyright.setup {
+vim.lsp.enable('pyright')
+vim.lsp.config('pyright', {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
   filetypes = {"python"},
-}
+})
 
 -- CMake
-lspconfig.cmake.setup {
+vim.lsp.enable('cmake')
+vim.lsp.config('cmake', {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
@@ -40,32 +39,29 @@ lspconfig.cmake.setup {
   init_options = {
     buildDirectory = "build"
   },
-  root_dir = function(pattern)
-    local cwd = vim.loop.cwd()
-    local root = util.root_pattern('CMakePresets.json', 'CTestConfig.cmake', '.git', 'build', 'cmake')(pattern)
-
-    -- prefer cwd if root is a descendant
-    return util.path.is_descendant(cwd, root) and cwd or root
-  end,
   single_file_spport = true
-}
+})
 
 -- JSON
+vim.lsp.enable('jsonls')
 local cp = vim.lsp.protocol.make_client_capabilities()
 cp.textDocument.completion.completionItem.snippetSupport = true
-lspconfig.jsonls.setup {
+vim.lsp.config('jsonls', {
   capabilities = cp,
-}
+})
 
 -- PowerShell
-lspconfig.powershell_es.setup {
-  bundle_path = 'C:\\Users\\Александр\\AppData\\Local\\PowerShellEditorServices',
+vim.lsp.enable('powershell_es')
+vim.lsp.config('powershell_es', {
+  bundle_path = 'D:/Program Files/PowerShellEditorServices',
   shell = 'powershell.exe',
-}
+})
 
 -- Bash
-lspconfig.bashls.setup {
+vim.lsp.enable('bashls')
+vim.lsp.config('bashls', {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
-}
+})
+
