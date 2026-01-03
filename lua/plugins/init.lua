@@ -1,3 +1,28 @@
+local local_repo_path = nil
+
+local has_local_repo, local_repo = pcall(require,"local_repo")
+if has_local_repo and local_repo then
+  local_repo_path = require("local_repo").plugins
+end
+
+print("local repo path: " .. local_repo_path)
+
+function isDevelop ()
+  if local_repo then
+      return "true"
+  end
+
+  return nil
+end
+
+function dirPath (plugin)
+  if local_repo then
+      return local_repo_path .. plugin
+  end
+
+  return nil
+end
+
 local plugins = {
   {
     "nvim-tree/nvim-tree.lua",
@@ -77,7 +102,7 @@ local plugins = {
   },
 
   {
-    "NvChad/nvcommunity",
+    "nvchad/nvcommunity",
     {
       import = "nvcommunity.git.diffview"
     },
@@ -123,7 +148,16 @@ local plugins = {
       },
       auto_install = true,
     },
+    dev = isDevelop(),
+    dir = dirPath("nvim-treesitter/nvim-treesitter")
   },
+
+  {
+    'L3MON4D3/LuaSnip',
+    dev = isDevelop(),
+    dir = dirPath("L3MON4D3/LuaSnip")
+  },
+
 
   -- git stuff
   {
