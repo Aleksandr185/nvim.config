@@ -3,8 +3,9 @@ local options = {
     lua = { "stylua" },
     python = {
       "isort",
-      --"black"
+      "black"                 -- pip install black
     },
+    cmake = { "cmake_format" }, -- pip install cmakelang
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
